@@ -1,0 +1,28 @@
+$(
+  ->
+    mapOptions = {
+      zoom: 5,
+      center: {lat: 38.6, lng: -95.7},
+      mapTypeId: 'terrain'
+    }
+    mapContainer = document.getElementById("map-container")
+    new google.maps.Map(mapContainer, mapOptions)
+
+    point1 = new google.maps.LatLng(-33.8975098545041,151.09962701797485);
+    point2 = new google.maps.LatLng(-33.8584421519279,151.0693073272705);
+    point3 = new google.maps.LatLng(-33.84525521656404,151.0421848297119);
+
+    // build an array of the points
+    wps = [{ location: point1 }, { location: point2 }, {location: point3}];
+
+    // set the origin and destination
+    org = new google.maps.LatLng ( -33.89192157947345,151.13604068756104);
+    dest = new google.maps.LatLng ( -33.69727974097957,150.29047966003418);
+
+    request = {
+      origin: org,
+      destination: dest,
+      waypoints: wps,
+      travelMode: google.maps.DirectionsTravelMode.DRIVING
+    };
+)

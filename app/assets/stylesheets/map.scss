@@ -1,0 +1,14 @@
+
+// Large Screen
+@media (min-width: $screen-sm-max) {
+  #map-container{
+    height: 70vh;
+  }
+}
+
+// Small Screen
+@media (max-width: $screen-sm-max) {
+  #map-container{
+    height: 50vh;
+  }
+}

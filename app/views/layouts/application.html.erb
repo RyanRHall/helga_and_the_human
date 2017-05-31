@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HelgaTheVan</title>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAa1W84G2J5rxNLYKJqnYqOZjCE1zUdvmM"></script>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="container-fluid">
+
+<div class="row">
+  <nav class="col-md-2">
+    <%= render partial: "layouts/navigation" %>
+  </nav>
+
+  <main class="col-md-10">
+    <header>
+      <h1>This where a cute thing will go</h1>
+    </header>
+    <%= yield %>
+  </main>
+</div>
+
+
+</body>
+</html>
