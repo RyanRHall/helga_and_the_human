@@ -1,4 +1,5 @@
-.nav-link-container {
+
+nav a {
   font-size: 150%;
   font-weight: bold;
   color: #FEFEFE;
@@ -7,16 +8,21 @@
   border-radius: 10px;
 }
 
+nav a:hover {
+  text-decoration: none;
+  font-weight: bolder;
+}
+
 // Large Screen
 @media (min-width: $screen-sm-max) {
-  .nav-link-container {
+  nav a {
     margin-bottom: 10px;
   }
 }
 
 // Small Screen
 @media (max-width: $screen-sm-max) {
-  .nav-link-container {
+  nav a {
     margin-right: 10px;
     flex: 1;
     text-align: center;

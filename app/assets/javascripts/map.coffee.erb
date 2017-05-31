@@ -28,16 +28,6 @@ $(
       }
       directionsService.route(request, (response) -> directionsDisplay.setDirections(response) )
 
-    org = {lat: 37.7749, lng: -122.4194}
-    dest = {lat: 37.7456, lng: -119.5936}
-
-    drawRoute(org, dest)
-
-    org = {lat: 37.7456, lng: -119.5936}
-    dest = {lat: 38.5733, lng: -109.5498}
-
-    drawRoute(org, dest, {color: "lightgreen"})
-
-    # helga.routes.forEach((route) -> drawRoute(route.org, route.dest))
+    helga.routes.forEach((route) -> drawRoute(route.origin, route.destination))
 
 )
