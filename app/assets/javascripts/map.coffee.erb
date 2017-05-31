@@ -1,28 +1,43 @@
 $(
   ->
+    # Setup
     mapOptions = {
       zoom: 5,
       center: {lat: 38.6, lng: -95.7},
       mapTypeId: 'terrain'
     }
     mapContainer = document.getElementById("map-container")
-    new google.maps.Map(mapContainer, mapOptions)
+    map = new google.maps.Map(mapContainer, mapOptions)
+    directionsService = new google.maps.DirectionsService
+    # Draw Method
+    drawRoute = (origin, destination, options={waypoints: [], color: "blue"}) ->
+      directionsDisplay = new google.maps.DirectionsRenderer({
+        map: map
+        preserveViewport: true
+        suppressMarkers: true
+        polylineOptions: {
+          strokeColor: options.color
+          strokeOpacity: 1
+          strokeWeight: 8
+        }
+      })
+      request = {
+        origin, destination,
+        waypoints: options.waypoints,
+        travelMode: google.maps.DirectionsTravelMode.DRIVING
+      }
+      directionsService.route(request, (response) -> directionsDisplay.setDirections(response) )
 
-    point1 = new google.maps.LatLng(-33.8975098545041,151.09962701797485);
-    point2 = new google.maps.LatLng(-33.8584421519279,151.0693073272705);
-    point3 = new google.maps.LatLng(-33.84525521656404,151.0421848297119);
+    org = {lat: 37.7749, lng: -122.4194}
+    dest = {lat: 37.7456, lng: -119.5936}
 
-    // build an array of the points
-    wps = [{ location: point1 }, { location: point2 }, {location: point3}];
+    drawRoute(org, dest)
 
-    // set the origin and destination
-    org = new google.maps.LatLng ( -33.89192157947345,151.13604068756104);
-    dest = new google.maps.LatLng ( -33.69727974097957,150.29047966003418);
+    org = {lat: 37.7456, lng: -119.5936}
+    dest = {lat: 38.5733, lng: -109.5498}
 
-    request = {
-      origin: org,
-      destination: dest,
-      waypoints: wps,
-      travelMode: google.maps.DirectionsTravelMode.DRIVING
-    };
+    drawRoute(org, dest, {color: "lightgreen"})
+
+    # helga.routes.forEach((route) -> drawRoute(route.org, route.dest))
+
 )
