@@ -12,4 +12,8 @@ class StaticController < ApplicationController
     gon.jbuilder template: 'app/views/json/routes.json.jbuilder'
   end
 
+  def places
+    @slug = params[:slug] || "san_francisco"
+  end
+
 end
