@@ -5,3 +5,9 @@ json.routes do
     json.waypoints { json.array! route.waypoints.map(&:to_lat_lng) }
   end
 end
+
+json.geoPoints do
+  json.array! @geo_points do |geo_point|
+    json.extract! geo_point, :name, :lat, :lng
+  end
+end

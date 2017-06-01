@@ -1,33 +1,53 @@
+# Constants
+mapOptions = {
+  zoom: 5,
+  center: {lat: 38.6, lng: -95.7},
+  mapTypeId: 'terrain'
+}
+lineSymbol = {
+  path: 'M 0,-.2 0,.2'
+  strokeOpacity: 1
+  scale: 5
+};
+
+# Document Ready
 $(
   ->
     # Setup
-    mapOptions = {
-      zoom: 5,
-      center: {lat: 38.6, lng: -95.7},
-      mapTypeId: 'terrain'
-    }
     mapContainer = document.getElementById("map-container")
+    return if !mapContainer
     map = new google.maps.Map(mapContainer, mapOptions)
     directionsService = new google.maps.DirectionsService
-    # Draw Method
-    drawRoute = (origin, destination, options={waypoints: [], color: "blue"}) ->
+    # Draw Route Method
+    drawRoute = (options) ->
       directionsDisplay = new google.maps.DirectionsRenderer({
         map: map
         preserveViewport: true
         suppressMarkers: true
         polylineOptions: {
-          strokeColor: options.color
-          strokeOpacity: 1
-          strokeWeight: 8
+          strokeColor: options.color || "blue"
+          strokeOpacity: 0
+          icons: [{
+            icon: lineSymbol
+            offset: '0'
+            repeat: '15px'
+          }]
         }
       })
       request = {
-        origin, destination,
-        waypoints: options.waypoints,
+        origin: options.origin
+        destination: options.destination
+        waypoints: options.waypoints || []
         travelMode: google.maps.DirectionsTravelMode.DRIVING
       }
       directionsService.route(request, (response) -> directionsDisplay.setDirections(response) )
-
-    helga.routes.forEach((route) -> drawRoute(route.origin, route.destination))
-
+    # Place Marker Method
+    placeMarker = (options) ->
+      new google.maps.Marker({
+        position: { lat: options.lat, lng: options.lng }
+        map: map
+      });
+    # Draw routes, place markers
+    helga.routes.forEach(drawRoute)
+    helga.geoPoints.forEach(placeMarker)
 )

@@ -8,6 +8,7 @@ class StaticController < ApplicationController
 
   def map
     @routes = Route.all
+    @geo_points = GeoPoint.where.not(name: nil)
     gon.jbuilder template: 'app/views/json/routes.json.jbuilder'
   end
 

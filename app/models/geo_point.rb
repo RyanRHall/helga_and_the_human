@@ -4,4 +4,8 @@ class GeoPoint < ActiveRecord::Base
   def to_lat_lng
     { lat: lat, lng: lng }
   end
+
+  def to_h
+    to_lat_lng.merge(name: name)
+  end
 end
