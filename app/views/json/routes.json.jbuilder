@@ -8,6 +8,6 @@ end
 
 json.geoPoints do
   json.array! @geo_points do |geo_point|
-    json.extract! geo_point, :name, :lat, :lng
+    json.extract! geo_point, :name, :lat, :lng, :slug
   end
 end

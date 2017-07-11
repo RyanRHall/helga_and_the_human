@@ -1,3 +1,16 @@
+#map-container-container {
+  position: relative;
+}
+
+#map-place-header {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #555555;
+  font-size: 600%;
+}
 
 // Large Screen
 @media (min-width: $screen-sm-max) {

@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20170531161956) do
 
   create_table "geo_points", force: :cascade do |t|
     t.string   "name"
+    t.string   "slug"
     t.float    "lat",        null: false
     t.float    "lng",        null: false
     t.datetime "created_at", null: false
