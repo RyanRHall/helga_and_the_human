@@ -7,9 +7,8 @@ GeoPoint.create!([
 ])
 
 Route.create!([
-  { title: "Goodbye SF!", date: Date.parse("2017-5-5"), geo_points: [GeoPoint.find(1), GeoPoint.find(2)] },
-  { title: "Yosemite to Moab", date: Date.parse("2017-5-20"), geo_points: [GeoPoint.find(2), GeoPoint.find(3)] },
-  { title: "Yosemite to Moab", date: Date.parse("2017-5-20"), geo_points: [GeoPoint.find(2), GeoPoint.find(3)] },
-  { title: "Moab to Boulder", date: Date.parse("2017-6-10"), geo_points: [GeoPoint.find(3), GeoPoint.find(4)] },
-  { title: "Moab to Boulder", date: Date.parse("2017-6-10"), geo_points: [GeoPoint.find(4), GeoPoint.find(5)] },
+  { title: "Goodbye SF!", date: Date.parse("2017-5-5"), geo_points: [GeoPoint.find_by(slug: :san_francisco), GeoPoint.find_by(slug: :yosemite)] },
+  { title: "Yosemite to Moab", date: Date.parse("2017-5-20"), geo_points: [GeoPoint.find_by(slug: :yosemite), GeoPoint.find_by(slug: :moab)] },
+  { title: "Moab to Boulder", date: Date.parse("2017-5-20"), geo_points: [GeoPoint.find_by(slug: :moab), GeoPoint.find_by(slug: :boulder)] },
+  { title: "Boulder to High Sierra", date: Date.parse("2017-6-10"), geo_points: [GeoPoint.find_by(slug: :boulder), GeoPoint.find_by(slug: :high_sierra)] },
 ])
