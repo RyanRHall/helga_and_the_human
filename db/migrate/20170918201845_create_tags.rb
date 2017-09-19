@@ -1,7 +1,7 @@
 class CreateTags < ActiveRecord::Migration
   def change
     create_table :tags do |t|
-      t.integer :photo_id
+      t.references :taggable, polymorphic: true, index: true
       t.string :slug
 
       t.timestamps null: false

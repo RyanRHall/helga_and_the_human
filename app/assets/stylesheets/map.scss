@@ -1,5 +1,6 @@
 #map-container-container {
   position: relative;
+  z-index: 2;
 }
 
 #map-place-header {
@@ -13,14 +14,14 @@
 }
 
 // Large Screen
-@media (min-width: $screen-sm-max) {
+@media (min-width: $screen-md-max) {
   #map-container{
     height: 70vh;
   }
 }
 
 // Small Screen
-@media (max-width: $screen-sm-max) {
+@media (max-width: $screen-md-max) {
   #map-container{
     height: 50vh;
   }

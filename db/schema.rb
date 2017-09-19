@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170918201845) do
+ActiveRecord::Schema.define(version: 20170918225849) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,11 +33,25 @@ ActiveRecord::Schema.define(version: 20170918201845) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "photos", force: :cascade do |t|
-    t.string   "filename",   null: false
-    t.string   "caption",    null: false
+  create_table "photo_group_photos", force: :cascade do |t|
+    t.integer  "photo_group_id"
+    t.integer  "photo_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "photo_groups", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.string   "img_path",       null: false
+    t.string   "thumbnail_path", null: false
+    t.string   "caption"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "routes", force: :cascade do |t|
@@ -48,10 +62,13 @@ ActiveRecord::Schema.define(version: 20170918201845) do
   end
 
   create_table "tags", force: :cascade do |t|
-    t.integer  "photo_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
     t.string   "slug"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
+
+  add_index "tags", ["taggable_type", "taggable_id"], name: "index_tags_on_taggable_type_and_taggable_id", using: :btree
 
 end

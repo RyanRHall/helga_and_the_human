@@ -1,4 +1,15 @@
-<%= link_to "Map", static_path(:map) %>
-<%= link_to "Places", static_path(:places) %>
-<%= link_to "Van", static_path(:van) %>
-<%= link_to "Climbing", static_path(:climbing) %>
+<%= link_to root_path, class: "nav-link-item" do %>
+  <div>
+    <span>Map</span>
+    <%= image_tag("icons/map") %></div>
+<% end %>
+<%= link_to photos_path(:van), class: "nav-link-item" do %>
+  <div>
+    <span>Van</span>
+    <%= image_tag("icons/van") %></div>
+<% end %>
+<%= link_to photos_path(:climbing), class: "nav-link-item" do %>
+  <div>
+    <span>Climbing</span>
+    <%= image_tag("icons/climbing") %></div>
+<% end %>

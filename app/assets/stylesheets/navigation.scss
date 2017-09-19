@@ -13,15 +13,25 @@ nav a:hover {
   font-weight: bolder;
 }
 
+.nav-link-item div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav img {
+  height: 32px;
+}
+
 // Large Screen
-@media (min-width: $screen-sm-max) {
+@media (min-width: $screen-lg-min) {
   nav a {
     margin-bottom: 10px;
   }
 }
 
 // Small Screen
-@media (max-width: $screen-sm-max) {
+@media (max-width: $screen-lg-min) {
   nav a {
     margin-right: 10px;
     flex: 1;
