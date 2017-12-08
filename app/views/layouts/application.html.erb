@@ -11,18 +11,21 @@
 </head>
 <body class="container-fluid">
 
-<div class="row">
-  <nav class="col-lg-2">
-    <%= render partial: "layouts/navigation" %>
-  </nav>
+  <header>
+    <h1 class="cute" >Travels & Tribulations</h1>
+    <%= render(partial: "layouts/admin_navigation") if logged_in? %>
+    <%= render(partial: "layouts/errors") %>
+  </header>
 
-  <main class="col-lg-10">
-    <header>
-      <h1>Travels & Tribulations</h1>
-    </header>
-    <%= yield %>
-  </main>
-</div>
+  <div class="row">
+    <nav class="col-lg-2 cute">
+      <%= render(partial: "layouts/navigation") %>
+    </nav>
+
+    <main class="col-lg-10">
+      <%= yield %>
+    </main>
+  </div>
 
 
 </body>

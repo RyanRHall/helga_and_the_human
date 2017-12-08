@@ -1,9 +1,18 @@
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+// libraries
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "./lightbox";
+
+// general stuff
+@import "./general";
 @import "./layout";
 @import "./navigation";
+
+// pages
 @import "./map";
 @import "./photos";
-@import "./lightbox";
-@import "./general";
+
+// admin pages
+@import "./admin";
+@import "./arrange";

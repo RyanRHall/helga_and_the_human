@@ -1,7 +1,15 @@
+body {
+  background-color: #fafafa;
+}
+
 .hidden {
   display: none;
 }
 
 h1 {
   font-size: 56px;
+}
+
+.cute {
+  font-family: 'Indie Flower', cursive;
 }

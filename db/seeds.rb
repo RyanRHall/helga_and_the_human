@@ -1,7 +1,6 @@
 GeoPoint.destroy_all
 Route.destroy_all
 Photo.destroy_all
-PhotoGroup.destroy_all
 Tag.destroy_all
 
 GeoPoint.create!([
@@ -13,10 +12,10 @@ GeoPoint.create!([
 ])
 
 Route.create!([
-  { title: "Goodbye SF!", date: Date.parse("2017-5-5"), geo_points: [GeoPoint.find_by(slug: :san_francisco), GeoPoint.find_by(slug: :yosemite)] },
-  { title: "Yosemite to Moab", date: Date.parse("2017-5-20"), geo_points: [GeoPoint.find_by(slug: :yosemite), GeoPoint.find_by(slug: :moab)] },
-  { title: "Moab to Boulder", date: Date.parse("2017-5-20"), geo_points: [GeoPoint.find_by(slug: :moab), GeoPoint.find_by(slug: :boulder)] },
-  { title: "Boulder to High Sierra", date: Date.parse("2017-6-10"), geo_points: [GeoPoint.find_by(slug: :boulder), GeoPoint.find_by(slug: :high_sierra)] },
+  { geo_points: [GeoPoint.find_by(slug: :san_francisco), GeoPoint.find_by(slug: :yosemite)] },
+  { geo_points: [GeoPoint.find_by(slug: :yosemite), GeoPoint.find_by(slug: :moab)] },
+  { geo_points: [GeoPoint.find_by(slug: :moab), GeoPoint.find_by(slug: :boulder)] },
+  { geo_points: [GeoPoint.find_by(slug: :boulder), GeoPoint.find_by(slug: :high_sierra)] },
 ])
 
 prefix = "/assets/photos/"
@@ -25,10 +24,12 @@ Photo.create!([
   {
     img_path: prefix + "climbing1.jpg",
     thumbnail_path: prefix + "climbing1.jpg",
+    caption: "test caption thing",
     tags_attributes: [{slug: :climbing}]
   }, {
     img_path: prefix + "climbing2.jpg",
     thumbnail_path: prefix + "climbing2.jpg",
+    caption: "test caption thing2 test caption thing2 test caption thing2 test caption thing2 test caption thing2 test caption thing2 test caption thing2 test caption thing2",
     tags_attributes: [{slug: :climbing}]
   }, {
     img_path: prefix + "sf1.jpg",
@@ -45,17 +46,10 @@ Photo.create!([
   }, {
     img_path: prefix + "yos1.jpg",
     thumbnail_path: prefix + "yos1.jpg",
-    tags_attributes: [{slug: :yosemite}]
+    tags_attributes: [{slug: :yosemite}, {slug: :climbing}]
   }, {
     img_path: prefix + "yos2.jpg",
     thumbnail_path: prefix + "yos2.jpg",
-    tags_attributes: [{slug: :yosemite}]
+    tags_attributes: [{slug: :yosemite}, {slug: :climbing}]
   },
-])
-
-PhotoGroup.create!([
-  { name: "Yosemite",
-    photos: Photo.where('img_path LIKE ?', '%yos%'),
-    tags_attributes: [{slug: :climbing}]
-  }
 ])

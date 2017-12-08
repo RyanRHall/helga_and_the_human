@@ -1,0 +1,7 @@
+<h3>Speak friend and enter!</h3>
+
+<%= form_tag(login_url, method: :post) do %>
+  <%= text_field_tag("password", nil, placeholder: "password") %>
+<% end %>
+
+<%= "invalid login" if @invalid_login %>

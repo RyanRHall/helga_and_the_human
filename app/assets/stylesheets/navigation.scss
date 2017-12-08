@@ -1,10 +1,15 @@
+nav {
+  display: flex;
+  overflow: auto;
+  padding: 15px;
+}
 
 nav a {
   font-size: 200%;
   font-weight: bold;
-  color: #FEFEFE;
+  color: black;
   padding: 10px 20px;
-  border: 2px solid #FEFEFE;
+  border: 2px solid black;
   border-radius: 10px;
 }
 

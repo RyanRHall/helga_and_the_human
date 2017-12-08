@@ -1,0 +1,17 @@
+<div id="admin_navigation">
+
+  <% if params[:controller] == "photos" && params[:action] == "index" %>
+    <%= button_to("Arrange Photos", arrange_photos_path, method: :get) %>
+  <% end %>
+
+  <% unless params[:controller] == "photos" && params[:action] == "new" %>
+    <%= button_to("New Photo", new_photo_path, method: :get) %>
+  <% end %>
+
+  <% if geo_point = GeoPoint.find_by(slug: params[:tag]) %>
+    <%= button_to("Edit Location", edit_geo_point_path(geo_point.id), method: :get) %>
+  <% end %>
+
+  <%= button_to("Mischief Managed", logout_path, method: :delete) %>
+
+</div>

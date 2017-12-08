@@ -1,0 +1,15 @@
+<%= form_for(@geo_point) do |f| %>
+  <span class="form-label">Name:</span>
+  <%= f.text_field :name, class: "form-field", placeholder: "name..." %>
+  <br><br>
+  <span class="form-label">Slug:</span>
+  <%= f.text_field :slug, class: "form-field", placeholder: "slug..." %>
+  <br><br>
+  <span class="form-label">Latitude:</span>
+  <%= f.text_field :lat, class: "form-field", placeholder: "lat..." %>
+  <br><br>
+  <span class="form-label">Longitude:</span>
+  <%= f.text_field :lng, class: "form-field", placeholder: "lng..." %>
+  <br><br>
+  <%= f.submit %>
+<% end %>

@@ -7,7 +7,14 @@
 }
 
 .grid-item {
-  width: 380px;
   border-radius: 10px;
   box-shadow: 2px 2px 2px #BBB;
+  margin-bottom: 20px;
+  width: 380px;
+}
+
+#img-preview{
+  height: 300px;
+  width: 300px;
+  outline: solid 1px grey;
 }

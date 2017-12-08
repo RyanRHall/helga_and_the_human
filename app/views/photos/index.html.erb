@@ -1,17 +1,13 @@
 <div>
-
-
   <div class="grid">
     <% @photos.each do |photo| %>
-      <%= link_to(photo.thumbnail_path, data: { lightbox: SecureRandom.hex }) do %>
-        <%= image_tag(photo.img_path, class: "grid-item", data: { lightbox: "unique" }) %>
-      <% end %>
-    <% end %>
-    <% @photo_groups.each do |photo_group| %>
-      <% namespace = SecureRandom.hex %>
-      <% photo_group.photos.each_with_index do |photo, index| %>
-        <%= link_to(photo.thumbnail_path, data: { lightbox: namespace }, class: (index == 0 ? "" : "hidden")) do %>
-          <%= image_tag(photo.img_path, class: "grid-item", data: { lightbox: "unique" }) %>
+      <% if logged_in? %>
+        <%= link_to(edit_photo_path(photo)) do %>
+          <%= image_tag(photo.thumbnail_path, class: "grid-item") %>
+        <% end %>
+      <% else %>
+        <%= link_to(photo.img_path, data: { lightbox: "gallery", title: photo.caption }.compact) do %>
+          <%= image_tag(photo.thumbnail_path, class: "grid-item", data: { lightbox: "unique" }) %>
         <% end %>
       <% end %>
     <% end %>

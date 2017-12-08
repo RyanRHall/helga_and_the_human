@@ -1,6 +1,0 @@
-<div id="places-tabs">
-  <% GeoPoint.where.not(slug: nil).each do |geo_point| %>
-    <% options = geo_point.slug == @slug ? { class: :selected } : {} %>
-    <%= link_to geo_point.name, static_path("places", slug: geo_point.slug), options %>
-  <% end %>
-</div>

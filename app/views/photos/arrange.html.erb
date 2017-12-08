@@ -1,0 +1,20 @@
+<div>
+  <%= form_tag(arrange_photos_url(slug: params[:slug]), method: :patch) do %>
+    <%= submit_tag("Save Order!") %>
+    <ul id="arrange-photos-container">
+      <% @tags.each do |tag| %>
+        <li>
+          <%= image_tag(tag.photo.thumbnail_path) %>
+          <%= hidden_field_tag("tag_ids[]", tag.id) %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+
+<script>
+  $( function() {
+    $( "#arrange-photos-container" ).sortable();
+    $( "#arrange-photos-container" ).disableSelection();
+  } );
+</script>
