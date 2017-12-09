@@ -2,7 +2,7 @@ class PhotosController < ApplicationController
 
   def index
     @photos = Photo.joins(:tags).where("tags.slug" => params[:tag]).order("tags.priority").order("tags.id")
-    @description = Description.find_by(slug: params[:tag])
+    @description = Description.find_by(slug: params[:tag]) || Description.new(slug: params[:tag])
   end
 
   def new

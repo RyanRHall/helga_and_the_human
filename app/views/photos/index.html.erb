@@ -1,6 +1,21 @@
-<% if @description %>
+<% if @description.persisted? && !logged_in? %>
   <h2><%= @description.title %></h2>
   <p><%= @description.content %></p>
+<% end %>
+
+<% if logged_in? %>
+  <%= form_for(@description) do |f| %>
+    <%= f.hidden_field(:slug) %>
+    <span class="form-label">Title:</span>
+    <%= f.text_field(:title, class: "form-field") %>
+    <br><br>
+    <span class="form-label">Description:</span>
+    <%= f.text_area(:content, class: "form-field") %>
+    <br><br>
+    <%= f.submit %>
+  <% end %>
+  <%= button_to("Delete Description", description_path(@description), method: :delete) if @description.persisted? %>
+  <hr>
 <% end %>
 
 <div class="grid">

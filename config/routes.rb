@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get "photos/:tag", controller: :photos, action: :index, as: :photos_by_tag
   get "photos/arrange/:tag", controller: :photos, action: :arrange, as: :arrange_photos
   patch "photos/arrange/:tag", controller: :photos, action: :arrange
+  resources :descriptions, only: %w[ create update destroy ]
 
   # blog
   resources :posts, only: %w[ index ]
