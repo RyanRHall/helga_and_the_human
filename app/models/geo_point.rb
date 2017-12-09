@@ -8,6 +8,10 @@ class GeoPoint < ActiveRecord::Base
   validates :lat, presence: true
   validates :lng, presence: true
 
+  after_save do
+    Description.create(title: name, slug: slug)
+  end
+
   before_destroy(prepend: true) do
     routes.each { |route| route.destroy! }
   end
