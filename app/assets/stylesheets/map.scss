@@ -9,20 +9,25 @@
   left: 0;
   right: 0;
   text-align: center;
-  color: #555555;
+  color: $brown;
   font-size: 600%;
+}
+
+#map-container {
+  border-radius: 10px;
+  box-shadow: 3px 3px 2px #BBB, -1px -1px 1px #BBB;
 }
 
 // Large Screen
 @media (min-width: $screen-md-max) {
-  #map-container{
-    height: 70vh;
+  #map-container {
+    height: 80vh;
   }
 }
 
 // Small Screen
 @media (max-width: $screen-md-max) {
-  #map-container{
+  #map-container {
     height: 50vh;
   }
 }

@@ -1,0 +1,16 @@
+<h2>Hmmmm, where'd yah go when?</h2>
+
+<% append = "<li><input type='text' name='slugs[]' placeholder='slug...' /></li>" %>
+<% onclick = %Q[$("#route-slug-list").append("#{append}")] %>
+
+<%= form_tag(mass_update_routes_path) do %>
+  <ul id="route-slug-list" class="sortable">
+    <% @slugs.each do |slug| %>
+      <li style="margin-bottom: 15px;">
+        <%= text_field_tag("slugs[]", slug) %>
+      </li>
+    <% end %>
+  </ul>
+  <%= submit_tag("Save Routes!") %>
+  <a href="#" onclick="<%= onclick %>">Add Slug</a>
+<% end %>

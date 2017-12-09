@@ -1,17 +1,26 @@
 <div id="admin_navigation">
 
+  <%# photos %>
   <% if params[:controller] == "photos" && params[:action] == "index" %>
     <%= button_to("Arrange Photos", arrange_photos_path, method: :get) %>
   <% end %>
-
   <% unless params[:controller] == "photos" && params[:action] == "new" %>
     <%= button_to("New Photo", new_photo_path, method: :get) %>
   <% end %>
 
+  <%# places %>
+  <% if params[:controller] == "static" && params[:action] == "map" %>
+    <%= button_to("New Place", new_geo_point_path, method: :get) %>
+  <% end %>
   <% if geo_point = GeoPoint.find_by(slug: params[:tag]) %>
-    <%= button_to("Edit Location", edit_geo_point_path(geo_point.id), method: :get) %>
+    <%= button_to("Edit Place", edit_geo_point_path(geo_point.id), method: :get) %>
+  <% end %>
+  <%= button_to("Delete Place", geo_point_path(@geo_point), method: :delete) if @geo_point.try(:persisted?) %>
+  <% if params[:controller] == "static" && params[:action] == "map" %>
+    <%= button_to("Edit Routes", routes_path, method: :get) %>
   <% end %>
 
+  <%# logout %>
   <%= button_to("Mischief Managed", logout_path, method: :delete) %>
 
 </div>

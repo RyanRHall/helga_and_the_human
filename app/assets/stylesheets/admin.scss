@@ -4,6 +4,14 @@
   justify-content: center;
 }
 
+// Photos
+.sortable img {
+  object-fit: cover;
+  width: 150px;
+  height: 150px;
+}
+
+// forms
 .form-label {
   display: inline-block;
   width: 100px;

@@ -1,5 +1,5 @@
 body {
-  background-color: #fafafa;
+  background-color: $background;
 }
 
 .hidden {
@@ -8,6 +8,14 @@ body {
 
 h1 {
   font-size: 56px;
+}
+
+h2 {
+  font-size: 36px;
+}
+
+p {
+  font-size: 18px;
 }
 
 .cute {

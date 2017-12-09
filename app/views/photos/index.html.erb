@@ -1,15 +1,18 @@
-<div>
-  <div class="grid">
-    <% @photos.each do |photo| %>
-      <% if logged_in? %>
-        <%= link_to(edit_photo_path(photo)) do %>
-          <%= image_tag(photo.thumbnail_path, class: "grid-item") %>
-        <% end %>
-      <% else %>
-        <%= link_to(photo.img_path, data: { lightbox: "gallery", title: photo.caption }.compact) do %>
-          <%= image_tag(photo.thumbnail_path, class: "grid-item", data: { lightbox: "unique" }) %>
-        <% end %>
+<% if @description %>
+  <h2><%= @description.title %></h2>
+  <p><%= @description.content %></p>
+<% end %>
+
+<div class="grid">
+  <% @photos.each do |photo| %>
+    <% if logged_in? %>
+      <%= link_to(edit_photo_path(photo)) do %>
+        <%= image_tag(photo.thumbnail_path, class: "grid-item") %>
+      <% end %>
+    <% else %>
+      <%= link_to(photo.img_path, data: { lightbox: "gallery", title: photo.caption }.compact) do %>
+        <%= image_tag(photo.thumbnail_path, class: "grid-item", data: { lightbox: "unique" }) %>
       <% end %>
     <% end %>
-  </div>
+  <% end %>
 </div>

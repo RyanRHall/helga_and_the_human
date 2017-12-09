@@ -1,15 +1,24 @@
-<%= link_to root_path, class: "nav-link-item" do %>
+<%= link_to root_path, id: "map-link", class: "nav-link-item" do %>
   <div>
     <span>Map</span>
-    <%= image_tag("icons/map") %></div>
+    <div class="icon-container"></div>
+  </div>
 <% end %>
-<%= link_to photos_by_tag_path(:van), class: "nav-link-item" do %>
+<%= link_to photos_by_tag_path(:van), id: "van-link", class: "nav-link-item" do %>
   <div>
     <span>Van</span>
-    <%= image_tag("icons/van") %></div>
+    <div class="icon-container"></div>
+  </div>
 <% end %>
-<%= link_to photos_by_tag_path(:climbing), class: "nav-link-item" do %>
+<%= link_to photos_by_tag_path(:climbing), id: "climbing-link", class: "nav-link-item" do %>
   <div>
     <span>Climbing</span>
-    <%= image_tag("icons/climbing") %></div>
+    <div class="icon-container"></div>
+  </div>
+<% end %>
+<%= link_to posts_path, id: "blog-link", class: "nav-link-item" do %>
+  <div>
+    <span>Blog</span>
+    <div class="icon-container"></div>
+  </div>
 <% end %>

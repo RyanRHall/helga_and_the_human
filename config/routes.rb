@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   get "photos/arrange/:tag", controller: :photos, action: :arrange, as: :arrange_photos
   patch "photos/arrange/:tag", controller: :photos, action: :arrange
 
+  # blog
+  resources :posts, only: %w[ index ]
+
   # session
   post :login, controller: :sessions
   delete :logout, controller: :sessions
