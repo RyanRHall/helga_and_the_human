@@ -19,9 +19,9 @@ setMapPlaceHeader = (text) ->
 clearMapPlaceHeader = () ->
   $("#map-place-header").empty()
 enlargeMarkerIcon = (marker) ->
-  marker.setIcon("/assets/icons/map_marker_large.png")
+  marker.setIcon("/assets/map_marker_large.png")
 shrinkMarkerIcon = (marker) ->
-  marker.setIcon("/assets/icons/map_marker.png")
+  marker.setIcon("/assets/map_marker.png")
 
 # Document Ready
 $(
@@ -60,7 +60,7 @@ $(
       marker = new google.maps.Marker({
         position: { lat: geoPoint.lat, lng: geoPoint.lng }
         map: map
-        icon: "/assets/icons/map_marker.png"
+        icon: "/assets/map_marker.png"
       });
       google.maps.event.addListener(marker, 'click',     () -> redirectToPlace(geoPoint.slug))
       google.maps.event.addListener(marker, 'mouseover', () -> setMapPlaceHeader(geoPoint.name); enlargeMarkerIcon(marker))

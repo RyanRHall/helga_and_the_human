@@ -22,49 +22,49 @@ nav {
 
 #map-link {
   .icon-container{
-    content: url("icons/map");
+    content: url("map.svg")
   }
   &:hover {
     color: $red;
     border-color: $red;
     .icon-container {
-      content: url("icons/map_hover");
+      content: url("map_hover");
     }
   }
 }
 #van-link {
   .icon-container{
-    content: url("icons/van");
+    content: url("van");
   }
   &:hover {
     color: $blue;
     border-color: $blue;
     .icon-container {
-      content: url("icons/van_hover");
+      content: url("van_hover");
     }
   }
 }
 #climbing-link {
   .icon-container{
-    content: url("icons/climbing");
+    content: url("climbing");
   }
   &:hover {
     color: $green;
     border-color: $green;
     .icon-container {
-      content: url("icons/climbing_hover");
+      content: url("climbing_hover");
     }
   }
 }
 #blog-link {
   .icon-container{
-    content: url("icons/blog");
+    content: url("blog");
   }
   &:hover {
     color: $orange;
     border-color: $orange;
     .icon-container {
-      content: url("icons/blog_hover");
+      content: url("blog_hover");
     }
   }
 }
