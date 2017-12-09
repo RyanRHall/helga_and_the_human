@@ -1,6 +1,6 @@
 /* Preload images */
 body:after {
-  content: url(../assets/close.png) url(../assets/loading.gif) url(../assets/prev.png) url(../assets/next.png);
+  content: image-url("close.png") image-url("loading.gif") image-url("prev.png") image-url("next.png");
   display: none;
 }
 
@@ -78,7 +78,7 @@ body.lb-disable-scrolling {
   width: 32px;
   height: 32px;
   margin: 0 auto;
-  background: url(../assets/loading.gif) no-repeat;
+  background: image-url("loading.gif") no-repeat;
 }
 
 .lb-nav {
@@ -96,7 +96,7 @@ body.lb-disable-scrolling {
 
 .lb-nav a {
   outline: none;
-  background-image: url('data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==');
+  background-image: image-url('data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==');
 }
 
 .lb-prev, .lb-next {
@@ -109,7 +109,7 @@ body.lb-disable-scrolling {
   width: 34%;
   left: 0;
   float: left;
-  background: url(../assets/prev.png) left 48% no-repeat;
+  background: image-url("prev.png") left 48% no-repeat;
 }
 
 .lb-nav a.lb-prev:hover {
@@ -121,7 +121,7 @@ body.lb-disable-scrolling {
   width: 64%;
   right: 0;
   float: right;
-  background: url(../assets/next.png) right 48% no-repeat;
+  background: image-url("next.png") right 48% no-repeat;
 }
 
 .lb-nav a.lb-next:hover {
@@ -183,7 +183,7 @@ body.lb-disable-scrolling {
   float: right;
   width: 30px;
   height: 30px;
-  background: url(../assets/close.png) top right no-repeat;
+  background: image-url("close.png") top right no-repeat;
   text-align: right;
   outline: none;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
