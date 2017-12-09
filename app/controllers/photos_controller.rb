@@ -1,5 +1,7 @@
 class PhotosController < ApplicationController
 
+  before_action :redirect_if_unauthorized!, except: %w[ index ]
+
   def index
     @photos = Photo.joins(:tags).where("tags.slug" => params[:tag]).order("tags.priority").order("tags.id")
     @description = Description.find_by(slug: params[:tag]) || Description.new(slug: params[:tag])

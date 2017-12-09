@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
     @logged_in ||= session[:session_token].try(:digest) == SessionsController::SECRET_HASH
   end
 
+  def redirect_if_unauthorized!
+    redirect_to root_url if !logged_in?
+  end
+
 end

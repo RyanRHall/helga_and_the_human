@@ -1,5 +1,7 @@
 class DescriptionsController < ApplicationController
 
+  before_action :redirect_if_unauthorized!
+
   def create
     description = Description.new(description_params)
     if !description.save

@@ -1,5 +1,7 @@
 class GeoPointsController < ApplicationController
 
+  before_action :redirect_if_unauthorized!
+
   def new
     @geo_point = GeoPoint.new
   end
