@@ -5,7 +5,7 @@ class RoutesController < ApplicationController
   def index
     routes = Route.all.preload(:geo_points)
     @slugs = routes.map { |route| route.geo_points.first.slug }
-    @slugs << routes.last.geo_points.last.slug if !@routes.empty?
+    @slugs << routes.last.geo_points.last.slug if routes.present?
   end
 
   def mass_update
