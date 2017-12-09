@@ -9,64 +9,41 @@ nav {
     color: black;
     padding: 10px 20px;
     border-bottom: 2px solid black;
+    img {
+      width: 32px;
+      height: 32px;
+    }
+    img.nav-icon-hover {
+      display: none;
+    }
     &:hover {
       text-decoration: none;
       font-weight: bolder;
-    }
-    .icon-container{
-      width: 32px;
-      height: 32px;
+      .nav-icon {
+        display: none;
+      }
+      .nav-icon-hover {
+        display: block;
+      }
     }
   }
 }
 
-#map-link {
-  .icon-container{
-    content: image-url("map")
-  }
-  &:hover {
-    color: $red;
-    border-color: $red;
-    .icon-container {
-      content: image-url("map_hover");
-    }
-  }
+#map-link:hover {
+  color: $red;
+  border-color: $red;
 }
-#van-link {
-  .icon-container{
-    content: image-url("van");
-  }
-  &:hover {
-    color: $blue;
-    border-color: $blue;
-    .icon-container {
-      content: image-url("van_hover");
-    }
-  }
+#van-link:hover {
+  color: $blue;
+  border-color: $blue;
 }
-#climbing-link {
-  .icon-container{
-    content: image-url("climbing");
-  }
-  &:hover {
-    color: $green;
-    border-color: $green;
-    .icon-container {
-      content: image-url("climbing_hover");
-    }
-  }
+#climbing-link:hover {
+  color: $green;
+  border-color: $green;
 }
-#blog-link {
-  .icon-container{
-    content: image-url("blog");
-  }
-  &:hover {
-    color: $orange;
-    border-color: $orange;
-    .icon-container {
-      content: image-url("blog_hover");
-    }
-  }
+#blog-link:hover {
+  color: $orange;
+  border-color: $orange;
 }
 
 .nav-link-item div {
