@@ -3,11 +3,12 @@
 <% append = "<li><input type='text' name='slugs[]' placeholder='slug...' /></li>" %>
 <% onclick = %Q[$("#route-slug-list").append("#{append}")] %>
 
-<%= form_tag(mass_update_routes_path) do %>
+<%= form_tag(mass_update_routes_path, id: "mass-update-route-form") do %>
   <ul id="route-slug-list" class="sortable">
     <% @slugs.each do |slug| %>
-      <li style="margin-bottom: 15px;">
+      <li>
         <%= text_field_tag("slugs[]", slug) %>
+        <%= image_tag("close") %>
       </li>
     <% end %>
   </ul>

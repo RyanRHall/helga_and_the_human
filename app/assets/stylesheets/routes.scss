@@ -1,0 +1,32 @@
+#mass-update-route-form {
+  ul{
+    padding: 0;
+  }
+
+  li {
+    background-color: #DDD;
+    cursor: move;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin-bottom: 15px;
+    padding: 5px;
+    width: 300px;
+
+    img {
+      cursor: pointer;
+      height: 16px;
+      width: 16px;
+      &:hover {
+        position: relative;
+        top: -1px;
+        right: -1px;
+        height: 18px;
+        width: 18px;
+
+        // margin: 0 0 -1px 0;
+      }
+    }
+  }
+}
