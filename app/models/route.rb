@@ -1,6 +1,6 @@
 class Route < ActiveRecord::Base
-  has_many :geo_point_routes, inverse_of: :route, dependent: :destroy
-  has_many :geo_points, through: :geo_point_routes, source: :geo_point
+  has_many :geo_point_routes, -> { order(:position) }, inverse_of: :route, dependent: :destroy
+  has_many :geo_points, -> { order("geo_point_routes.position") }, through: :geo_point_routes, source: :geo_point
 
 
   def geo_points=(geo_points)

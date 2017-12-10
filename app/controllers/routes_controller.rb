@@ -3,7 +3,7 @@ class RoutesController < ApplicationController
   before_action :redirect_if_unauthorized!
 
   def index
-    routes = Route.all.preload(:geo_points)
+    routes = Route.all
     @slugs = routes.map { |route| route.geo_points.first.slug }
     @slugs << routes.last.geo_points.last.slug if routes.present?
   end
