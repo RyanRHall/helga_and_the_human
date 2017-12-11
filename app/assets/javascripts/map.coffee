@@ -19,9 +19,15 @@ setMapPlaceHeader = (text) ->
 clearMapPlaceHeader = () ->
   $("#map-place-header").empty()
 enlargeMarkerIcon = (marker) ->
-  marker.setIcon("/assets/map_marker_large.png")
+  marker.setIcon({
+    url: "/assets/map_marker.png"
+    scaledSize: new google.maps.Size(64, 64)
+  })
 shrinkMarkerIcon = (marker) ->
-  marker.setIcon("/assets/map_marker.png")
+  marker.setIcon({
+    url: "/assets/map_marker.png"
+    scaledSize: new google.maps.Size(48, 48)
+  })
 
 # Document Ready
 $(
@@ -31,6 +37,7 @@ $(
     return if !mapContainer
     map = new google.maps.Map(mapContainer, mapOptions)
     directionsService = new google.maps.DirectionsService
+    markers = []
     # Draw Route Method
     drawRoute = (options) ->
       directionsDisplay = new google.maps.DirectionsRenderer({
@@ -60,11 +67,15 @@ $(
       marker = new google.maps.Marker({
         position: { lat: geoPoint.lat, lng: geoPoint.lng }
         map: map
-        icon: "/assets/map_marker.png"
+        icon: {
+          url: "/assets/map_marker.png"
+          scaledSize: new google.maps.Size(48, 48)
+        }
       });
       google.maps.event.addListener(marker, 'click',     () -> redirectToPlace(geoPoint.slug))
       google.maps.event.addListener(marker, 'mouseover', () -> setMapPlaceHeader(geoPoint.name); enlargeMarkerIcon(marker))
       google.maps.event.addListener(marker, 'mouseout',  () -> clearMapPlaceHeader();            shrinkMarkerIcon(marker))
+      markers.push(marker)
     # Draw routes, place markers
     helga.routes.forEach(drawRoute)
     helga.geoPoints.forEach(placeMarker)
