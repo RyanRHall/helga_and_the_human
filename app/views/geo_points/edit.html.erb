@@ -1,3 +1,5 @@
 <h2>Okay, change yer shit..</h2>
 
 <%= render(partial: "geo_point_form") %>
+
+<%= button_to("Delete Geo Point", geo_point_path(@geo_point), method: :delete) %>

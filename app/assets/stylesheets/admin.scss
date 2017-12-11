@@ -5,10 +5,20 @@
 }
 
 // Photos
-.sortable img {
-  object-fit: cover;
-  width: 150px;
-  height: 150px;
+#arrange-photos-form{
+  ul {
+    padding: 0;
+    li {
+      list-style: none;
+      img {
+        object-fit: cover;
+        width: 150px;
+        height: 150px;
+        cursor: move;
+        margin-bottom: 15px;
+      }
+    }
+  }
 }
 
 // forms

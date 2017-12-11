@@ -8,8 +8,11 @@ Rails.application.routes.draw do
 
   # map
   resources :geo_points, only: %w[ new create edit update destroy ]
-  resources :routes, only: %w[ index ]
-  post :mass_update_routes, action: :mass_update, controller: :routes, as: :mass_update_routes
+  resources :routes, only: %w[ index ] do
+    collection do
+      post :mass_update
+    end
+  end
 
   # photos
   resources :photos, only: %w[ new create edit update destroy ]

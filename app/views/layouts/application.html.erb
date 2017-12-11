@@ -13,14 +13,15 @@
 <body class="container-fluid">
 
   <header>
-    <h1 class="cute" >Helga and the Human</h1>
+    <h1>Helga and the Human</h1>
     <%= render(partial: "layouts/admin_navigation") if logged_in? %>
     <%= render(partial: "layouts/errors") %>
   </header>
 
   <div class="row">
-    <nav class="col-lg-2 cute">
+    <nav class="col-lg-2">
       <%= render(partial: "layouts/navigation") %>
+      <%= render(partial: "layouts/tag_navigation") %>
     </nav>
 
     <main class="col-lg-10">

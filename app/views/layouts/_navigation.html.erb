@@ -1,28 +1,30 @@
-<%= link_to root_path, id: "map-link", class: "nav-link-item" do %>
-  <div>
-    <span>Map</span>
-    <%= image_tag("map", class: "nav-icon") %>
-    <%= image_tag("map_hover", class: "nav-icon-hover") %>
-  </div>
-<% end %>
-<%= link_to photos_by_tag_path(:van), id: "van-link", class: "nav-link-item" do %>
-  <div>
-    <span>Van</span>
-    <%= image_tag("van", class: "nav-icon") %>
-    <%= image_tag("van_hover", class: "nav-icon-hover") %>
-  </div>
-<% end %>
-<%= link_to photos_by_tag_path(:climbing), id: "climbing-link", class: "nav-link-item" do %>
-  <div>
-    <span>Climbing</span>
-    <%= image_tag("climbing", class: "nav-icon") %>
-    <%= image_tag("climbing_hover", class: "nav-icon-hover") %>
-  </div>
-<% end %>
-<%= link_to posts_path, id: "blog-link", class: "nav-link-item" do %>
-  <div>
-    <span>Blog</span>
-    <%= image_tag("blog", class: "nav-icon") %>
-    <%= image_tag("blog_hover", class: "nav-icon-hover") %>
-  </div>
-<% end %>
+<div id="navigation-container" class="cute">
+  <%= link_to root_path, id: "map-link" do %>
+    <div>
+      <span>Map</span>
+      <%= image_tag("map", class: "nav-icon") %>
+      <%= image_tag("map_hover", class: "nav-icon-hover") %>
+    </div>
+  <% end %>
+  <%= link_to photos_by_tag_path(:van), id: "van-link" do %>
+    <div>
+      <span>Van</span>
+      <%= image_tag("van", class: "nav-icon") %>
+      <%= image_tag("van_hover", class: "nav-icon-hover") %>
+    </div>
+  <% end %>
+  <%= link_to photos_by_tag_path(:climbing), id: "climbing-link" do %>
+    <div>
+      <span>Climbing</span>
+      <%= image_tag("climbing", class: "nav-icon") %>
+      <%= image_tag("climbing_hover", class: "nav-icon-hover") %>
+    </div>
+  <% end %>
+  <%= link_to posts_path, id: "blog-link" do %>
+    <div>
+      <span>Blog</span>
+      <%= image_tag("blog", class: "nav-icon") %>
+      <%= image_tag("blog_hover", class: "nav-icon-hover") %>
+    </div>
+  <% end %>
+</div>

@@ -15,7 +15,6 @@
   <% if geo_point = GeoPoint.find_by(slug: params[:tag]) %>
     <%= button_to("Edit Place", edit_geo_point_path(geo_point.id), method: :get) %>
   <% end %>
-  <%= button_to("Delete Place", geo_point_path(@geo_point), method: :delete) if @geo_point.try(:persisted?) %>
   <% if params[:controller] == "static" && params[:action] == "map" %>
     <%= button_to("Edit Routes", routes_path, method: :get) %>
   <% end %>

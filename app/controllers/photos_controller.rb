@@ -5,6 +5,7 @@ class PhotosController < ApplicationController
   def index
     @photos = Photo.joins(:tags).where("tags.slug" => params[:tag]).order("tags.priority").order("tags.id")
     @description = Description.find_by(slug: params[:tag]) || Description.new(slug: params[:tag])
+    @geo_points = GeoPoint.where.not(slug: params[:tag]).order(:name)
   end
 
   def new

@@ -1,13 +1,8 @@
-h1 {
-  margin-top: 25px;
-}
-
 main {
   padding: 15px;
 
   h2 {
     margin-top: 8px;
-    font-family: 'Indie Flower', cursive;
     text-align: center;
   }
 
@@ -22,15 +17,12 @@ header {
   text-align: center;
 }
 
+nav {
+  padding: 15px;
+}
+
 // Large Screen
 @media (min-width: $screen-lg-min) {
-  nav {
-    height: 100vh;
-    flex-direction: column;
-  }
-  main {
-    height: 100vh;
-  }
 }
 
 // Small Screen

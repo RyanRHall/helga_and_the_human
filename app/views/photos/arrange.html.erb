@@ -1,6 +1,5 @@
 <div>
-  <%= form_tag(arrange_photos_path(slug: params[:slug]), method: :patch) do %>
-    <%= submit_tag("Save Order!") %>
+  <%= form_tag(arrange_photos_path(slug: params[:slug]), id: "arrange-photos-form", method: :patch) do %>
     <ul class="sortable">
       <% @tags.each do |tag| %>
         <li>
@@ -9,5 +8,6 @@
         </li>
       <% end %>
     </ul>
+    <%= submit_tag("Save Order!") %>
   <% end %>
 </div>
