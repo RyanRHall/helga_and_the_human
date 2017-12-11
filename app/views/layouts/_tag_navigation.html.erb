@@ -2,7 +2,6 @@
   <%= link_to(photos_by_tag_path(:friends), class: "nav-link-tag") do %>
     Friends
   <% end %>
-  <% @geo_points ||= [] %>
   <% @geo_points.each do |geo_point| %>
     <%= link_to(photos_by_tag_path(geo_point.slug), class: "nav-link-tag") do %>
       <%= geo_point.name %>

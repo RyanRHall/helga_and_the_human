@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 
   helper_method :logged_in?
 
+  before_action do
+    @geo_points = GeoPoint.all.order(:name)
+  end
+
   def logged_in?
     @logged_in ||= session[:session_token].try(:digest) == SessionsController::SECRET_HASH
   end
