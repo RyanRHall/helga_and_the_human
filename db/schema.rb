@@ -42,11 +42,10 @@ ActiveRecord::Schema.define(version: 20171209141132) do
   end
 
   create_table "photos", force: :cascade do |t|
-    t.string   "img_path",       null: false
-    t.string   "thumbnail_path", null: false
+    t.string   "public_id",  null: false
     t.string   "caption"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "routes", force: :cascade do |t|

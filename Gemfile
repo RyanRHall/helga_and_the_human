@@ -25,6 +25,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass', '~> 3.3.6'
 # Gon
 gem 'gon'
+# Cloudinary
+gem 'cloudinary'
+# figaro
+gem 'figaro'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
