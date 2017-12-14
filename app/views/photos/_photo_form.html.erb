@@ -1,6 +1,5 @@
 <%= form_for(@photo) do |f| %>
-  <%= f.hidden_field :img_path, id: "img-path-field" %>
-  <%= f.hidden_field :thumbnail_path, id: "thumbnail-path-field" %>
+  <%= f.hidden_field :public_id, id: "public-id-field" %>
   <span class="form-label">Caption:</span>
   <%= f.text_field :caption, class: "form-field", placeholder: "caption..." %>
   <br><br>

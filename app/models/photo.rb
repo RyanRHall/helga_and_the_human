@@ -23,4 +23,12 @@ class Photo < ActiveRecord::Base
     self.tags_attributes = slugs_to_delete + slugs_to_add
   end
 
+  def img_path
+    "https://res.cloudinary.com/dtyks84om/image/upload/#{public_id}.jpg"
+  end
+
+  def thumbnail_path
+    "https://res.cloudinary.com/dtyks84om/image/upload/w_400/#{public_id}.jpg" 
+  end
+
 end
