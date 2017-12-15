@@ -1,10 +1,10 @@
 class PhotosController < ApplicationController
 
-  # CLOUDINARY_TOKENS = {
-  #   cloud_name: Figaro.env.cloudinary_cloud_name,
-  #   api_key: Figaro.env.cloudinary_api_key,
-  #   api_secret: Figaro.env.cloudinary_api_secret,
-  # }
+  CLOUDINARY_TOKENS = {
+    cloud_name: Figaro.env.cloudinary_cloud_name,
+    api_key: Figaro.env.cloudinary_api_key,
+    api_secret: Figaro.env.cloudinary_api_secret,
+  }
 
   before_action :redirect_if_unauthorized!, except: %w[ index ]
 
@@ -47,9 +47,10 @@ class PhotosController < ApplicationController
 
   def destroy
     photo = Photo.find(params[:id])
-    photo.destroy!
+    tag = photo.tags.first.try(:slug)
     Cloudinary::Uploader.destroy(photo.public_id, self.class::CLOUDINARY_TOKENS)
-    redirect_to photos_by_tag_path(photo.tags.first.slug)
+    photo.destroy!
+    redirect_to(tag ? photos_by_tag_path(tag) : root_path)
   end
 
   def arrange

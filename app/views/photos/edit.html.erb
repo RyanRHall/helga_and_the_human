@@ -1,3 +1,5 @@
 <h2>Edit Dat Sheet</h2>
 
 <%= render(partial: "photo_form") %>
+
+<%= button_to("Delete Photo", photo_path(@photo), method: :delete) %>

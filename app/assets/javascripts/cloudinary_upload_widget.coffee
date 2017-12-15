@@ -6,14 +6,11 @@ widgetOptions = {
 }
 
 _previewPath = "https://res.cloudinary.com/dtyks84om/image/upload/w_400/"
-_thumbnailAddOn = "w_400/"
 
 $(->
   $("#upload-widget-opener").click(->
     cloudinary.openUploadWidget(widgetOptions,
       (error, result) ->
-        debugger
-        path = result[0].path
         $("#public-id-field").val(result[0].public_id)
         $("#img-preview").attr("src", _previewPath + result[0].path)
     )
